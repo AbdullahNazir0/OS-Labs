@@ -1,0 +1,50 @@
+# Compiled object files
+*.o
+*.obj
+
+# Compiled binary files
+*.exe
+*.out
+*.bin
+
+# Backup files
+*~ 
+*.bak
+*.swp
+*.swo
+
+# Debug files
+*.dSYM
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.pid
+
+# Executable files
+*.exe
+*.out
+
+# IDE-specific files
+.vscode/
+.idea/
+*.code-workspace
+
+# CMake build directory
+/build/
+CMakeFiles/
+CMakeCache.txt
+*.cmake
+
+# Makefile generated files
+Makefile
+Makefile.in
+
+# Miscellaneous files
+*.gcno
+*.gcda
+*.gcov
+
+# Version control directories
+.git/
