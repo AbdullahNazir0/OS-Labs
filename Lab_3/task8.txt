@@ -1,0 +1,7 @@
+Emp01 Asad M internee 1 14000
+Emp02 Ahmad M developer 2 50000
+Emp03 Ayesha F sqaanalyst 5 35000
+Emp04 Amjad M dataanalyst 3 30000
+Emp05 Bushra F personalassisstant 4 25000
+Emp06 Bisma F developer 2 40000
+Emp09 Abdullah M developer 4 19000.00
