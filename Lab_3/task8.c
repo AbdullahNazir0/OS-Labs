@@ -20,6 +20,7 @@ void addRecord(struct Employee record[], int *count);
 void searchByID(char reg[], struct Employee rec[], int count);
 void showAllRecord(struct Employee rec[], int count);
 void employeesWithPayLessThanBasicPay(struct Employee rec[], int count);
+void giveBonus(struct Employee rec[], int count);
 
 int main(int argc, char *argv[]) {
     
@@ -34,7 +35,8 @@ int main(int argc, char *argv[]) {
         printf("2. Search a record by ID\n");
         printf("3. Show all records\n");
         printf("4. Show employees having pay less then basic pay (20000)\n");
-        printf("5. Save and Exit\n");
+        printf("5. Give bonus to employees\n");
+        printf("0. Save and Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -61,9 +63,14 @@ int main(int argc, char *argv[]) {
             break;
 
         case 5:
-            printf("Exiting...\n"); 
+            giveBonus(employees, employeesCount);
+            printf("Bonus given successfully.\n");
+            break;
+
+        case 0:
+            printf("Exiting...\n");
             return 0;
-        
+
         default:
             printf("Invalid choice.\n");
             break;
@@ -166,5 +173,17 @@ void employeesWithPayLessThanBasicPay(struct Employee rec[], int count) {
 
     if(flag == 0) {
         printf("No record found.\n");
+    }
+}
+
+void giveBonus(struct Employee rec[], int count) {
+    for(int i = 0; i < count; i++) {
+        if(rec[i].pay > 10000 && rec[i].pay < 30000) {
+            rec[i].pay = rec[i].pay + (0.1 * rec[i].pay);
+        } else if(rec[i].pay > 30000 && rec[i].pay < 50000) {
+            rec[i].pay = rec[i].pay + (0.2 * rec[i].pay);
+        } else if(rec[i].pay > 50000) {
+            rec[i].pay = rec[i].pay + (0.3 * rec[i].pay);
+        }
     }
 }
