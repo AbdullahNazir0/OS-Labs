@@ -3,30 +3,21 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <sys/file.h>
 
-int main() {
-
-    int fd[2];
-    pipe(fd);
-
-    pid_t pid = fork();
+int main(int argc, char *argv[]) {
+    pid_t pid;
+    pid = fork();
     if(pid < 0) {
-        exit(EXIT_FAILURE);
+        printf("Fork Failed\n");
+        exit(-1);
     }
     if(pid == 0) {
-        close(fd[0]);
-        dup2(fd[1], 1);
-        close(fd[1]);
+        int file_fd = open("input.txt", O_CREAT | O_TRUNC | O_RDWR, 0777);
+        dup2(file_fd, 1);
+        close(file_fd);
         execlp("ls", "ls", "/", "-l", NULL);
-        exit(EXIT_FAILURE);
     } else {
         wait(NULL);
-        close(fd[1]);
-        dup2(fd[0], 0);
-        close(fd[0]);
-        execlp(">", ">", "input.txt", NULL);
-        exit(EXIT_FAILURE);
     }
-
-    return 0;
 }
