@@ -26,6 +26,7 @@ void *computePi(void *args) {
     }
 
     sum += threadSum;
+    return NULL;
 }
 
 int main(int argc, char *argv[]) {
